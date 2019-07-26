@@ -1,0 +1,136 @@
+INITIAL BLUEPRINT CREATION (REPEAT FOR EACH SECTION)
+======================================================
+
+1) Save a high-res pdf of the blueprint from InDesign (600 dpi).
+
+2) Open the pdf with Photoshop.
+
+3) Import pages at highest quality possible (set size
+to 32000 x 32000 pixels (constrain proportions), RGB color mode).
+
+4) File > Save As..., Select JPEG and name it (something like
+blueprint-{X}v1 where {X} is the page number... avoid spaces). Set
+the image quality to 10 and select Baseline Standard.
+
+5) Repeat steps 3 & 4 for all pages.
+
+6) Open Zoomify (program can be downloaded here:
+http://www.zoomify.com/free.htm)
+
+7) Select and drag all jpegs (from step 4) to Zoomify.
+
+8) Wait for Zoomify to process images... it will create a
+folder for each jpeg in the same directory.
+
+9) Move all folders from step 8 to the 'img' directory (Do NOT
+touch the 'unavailable' folder).
+
+10) Open 'EDIT_ME.js' in a text editor.
+
+11) For each page set the 'available', 'width', 'height', and
+'imgFolder' variables.
+
+  a) If a page is NOT available in the system, mark 'available' as false;
+
+  b) Find the jpeg's (from step 4) dimensions (right click
+  on file > Get Info > More Info > Dimensions)
+
+  c) 'imgFolder' should correspond to the folder name/location
+  from step 9 for each page.
+
+12) Save 'EDIT_ME.js'.
+
+13) Open FileZilla (program can be downloaded here:
+https://filezilla-project.org/download.php)
+
+14) Connect to studio.ovrture:
+
+  * on first run) In the menubar select FileZilla > Settings...,
+    select Transfers and make sure 'Maximum simultaneous transfers'
+    is set to 5, then click OK.
+
+15) Create a new client directory following the Studio Access
+List google sheet instructions.
+
+16) Rename root folder as instructed.
+
+16) Drag entire folder into the /var/www/ovrture folder.
+
+17) Wait for queued files to finish uploading
+
+18) Go to https://studio.ovrture.com/, enter the password, and test
+out the viewer. If something appears off, check the settings in the
+EDIT_ME file of corresponding section.
+
+
+
+
+
+
+
+
+
+UPDATING BLUEPRINT (REPEAT FOR NECESSARY SECTIONS)
+===================================================
+
+1) Save a high-res pdf of the revised blueprint pages from
+InDesign (600 dpi).
+
+2) Open the pdf with Photoshop.
+
+3) Import pages at highest quality possible (set size
+to 32000 x 32000 pixels (constrain proportions), RGB color mode).
+
+4) File > Save As..., Select JPEG and name it (something like
+blueprint-{X}v{Y} where {X} is the page number and {Y} is the next
+version number... avoid spaces). Set the image quality to 10 and
+select Baseline Standard.
+
+5) Repeat steps 3 & 4 for all pages.
+
+6) Open Zoomify (program can be downloaded here:
+http://www.zoomify.com/free.htm)
+
+7) Select and drag all jpegs (from step 4) to Zoomify.
+
+8) Wait for Zoomify to process images... it will create a
+folder for each jpeg in the same directory.
+
+9) Open FileZilla (program can be downloaded here:
+https://filezilla-project.org/download.php)
+
+10) Connect to studio.ovrture:
+
+  * on first run) In the menubar select FileZilla > Settings...,
+    select Transfers and make sure 'Maximum simultaneous transfers'
+    is set to 5, then click OK.
+
+11) Find the correct directory on the server (from the Studio Access
+List google sheet), open it.
+
+12) Edit corresponding 'EDIT_ME.js' in a text editor. (You can either right-click
+and select 'View/Edit' or download, edit, and re-upload)
+
+13) For each revised page, rename the 'imgFolder' variable to match
+the name in step 4. If any other variables have changed, update
+those as well.
+
+  a) If a page is NOT available in the system, mark 'available' as false;
+
+  b) Find the jpeg's (from step 4) dimensions (right click
+  on file > Get Info > More Info > Dimensions)
+
+14) Save 'EDIT_ME.js'.
+
+15) Open 'img' directory.
+
+16) Drag all folders from step 8 to the 'img' directory (Do NOT
+touch the 'unavailable' folder).
+
+17) Wait for queued files to finish uploading
+
+18) Go to https://studio.ovrture.com/, enter the password, and test
+out the viewer. If something appears off, check the settings in the
+EDIT_ME file of corresponding section.
+
+19) Delete old directories in img folder
