@@ -1,0 +1,126 @@
+INITIAL BLUEPRINT CREATION (REPEAT FOR EACH SECTION)
+======================================================
+
+1) Save, Commit, and Merge branches to the master.
+
+2) Open the page as untracked from the master.
+
+3) Run the "Add Artboard Borders & Titles" plugin to add Borders
+and again to add Titles (using these settings: border width: 1, 
+border color: #7f7f7f, font: Arvo, font size: 32, line height: 36, 
+vertical space: 20).
+plugin: https://github.com/yuanqing/sketch-plugins/tree/master/packages/sketch-add-artboard-borders-and-titles
+
+4) Run the "Sketch Commands > Export > Whole Page to Desktop as PNG" 
+plugin. This will create a 'page.png' file on your desktop.
+plugin: https://github.com/bomberstudios/sketch-commands
+
+5) Rename the page.png file to page{XX}.png where {XX} is the page 
+number (ie. page01.png).
+
+6) Open the png with Photoshop.
+
+7) Add a solid white layer behind the original trasparent layer, 
+and flatten.
+
+8) OPTIONAL (to save filesize and upload time): scale down the image
+so that the total number of pixels is around 250 million. For example:
+Original image is 11,000 x 33,000 pixels for a total of 363 million pixels.
+If it's scaled down to 85% (11,000 * 33,000 * .85 * .85), the total number
+of pixels becomes 262 million.
+
+9) Save the png. (These original png files can be combined at the end to make the final PDF proof)
+
+10) Export the file as a Zoomify image (File > Export > Zoomify...).
+Settings: Template: Zoomify Viewer (White Background), Output folder: I recommend 
+a dedicated folder on your desktop just for this (something like Blueprint Export), 
+Base Name: can be the same as the png, Image Quality: 10, Browser Options: 9999 x 9999 pixels.
+Hit OK, this could take a few minutes depending on your computer and file size.
+This will generate a few files: a folder with the page name (this is what you'll need),
+an html and javacript file (these are junk).
+
+  a) at this point, I like to add "v1" to the generated folder name (to keep track of the page 
+  versions/revisions; "page01v1.png" for example)
+
+11) Repeat steps 2–10 for all pages (no need to include empty/unused pages).
+
+12) Move all generated folders to their respective locations (Blueprints > {Blueprint_folder} > img).
+
+13) Set up this Blueprint Viewer:
+
+14) In a text/code editor edit the "config_EDIT.php" file:
+
+  a) Make sure that each blueprint has its own variable name and settings ('bp1' => [...], 'bp2' => [...], etc.), 
+  remove any unnecessary blueprints (including the comma after the last blueprint bracket).
+  Note: the Core page counts as its own blueprint.
+
+  b) 'blueprint_folder' is the exact naming of this blueprint's folder (located inside the "Blueprints" folder).
+  Named as {blueprint-number}_{brand}_{palette}.
+
+  c) 'brand' is the brand that appears in the dropdown menu. (usually the client name)
+
+  d) 'palette' is the palette that appears in the dropdown menu. (usually the year)
+
+  e) 'num_pages' is the number of pages in this one specific blueprint
+
+  f) 'page_name_override' is used if there are additional pages or if a default page is different than normal.
+
+  g) 'google_link' is the url of the client report questionnaire; set to FALSE if unavailable.
+
+15) For each blueprint folder (from 13.b), edit the "EDIT_ME.js" file:
+
+  a) Make sure that each page has its own variable name and settings (page1: {...}, page2: {...}, etc.), 
+  add any additional pages. NOTE: variable names (page1) are numbered to this specific blueprint; 
+  folder names (page02v1) are numbered according to their place in all blueprints combined.
+
+  b) Edit each page's settings (following the notes at the top).
+
+    1) If a page is NOT available in the system, mark 'available' as false;
+
+    2) Find the png's (from step 9) dimensions (right click
+    on file > Get Info > More Info > Dimensions)
+
+    3) 'imgFolder' should correspond to the folder name/location for each page.
+
+16) Save 'EDIT_ME.js'.
+
+17) If adding a page, make sure the {blueprint_folder} has a .php file for the new page 
+(just duplicate and edit an existing .php file).
+
+18) Now to upload!
+
+19) Open FileZilla (program can be downloaded here:
+https://filezilla-project.org/download.php)
+
+20) Connect to studio.ovrture 
+(see instructions tab on google sheet: https://docs.google.com/spreadsheets/d/1c71kTnk1M6Y1bWTSNLpX47Fen-C-3U3wOoI82_i_lRM/edit?usp=sharing)
+
+  * on first run) In the menubar select FileZilla > Settings...,
+    select Transfers and make sure 'Maximum simultaneous transfers'
+    is set to 5, then click OK.
+
+21) Create a new client listing following the Studio Access
+List google sheet instructions.
+
+22) Rename this blueprint viewer's root folder with the hashed password.
+
+23) Drag entire folder into the /var/www/ovrture folder.
+
+24) Wait for queued files to finish uploading (could take a while)
+
+25) Go to https://studio.ovrture.com/, enter the unencrypted password, and test
+out the viewer. If something appears off, check the settings in the
+EDIT_ME file of corresponding section.
+
+
+
+
+
+
+
+
+
+UPDATING BLUEPRINT (REPEAT FOR NECESSARY SECTIONS)
+===================================================
+
+******* NEED TO REVISE, BUT SHOULD BE SIMILAR TO INITIAL CREATION ******* 
